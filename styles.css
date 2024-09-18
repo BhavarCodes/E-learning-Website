@@ -1,0 +1,335 @@
+/* Basic Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(/assets/images/hero-bg.jpg);
+    opacity: 0.5;
+    z-index: -1;
+    position: fixed;
+}
+
+
+/* Main Content Styling */
+#main-content {
+    transition: margin-left 0.5s ease; /* Smooth transition */
+}
+
+/* When sidebar is open, push the main content to the right */
+.sidebar-open #main-content {
+    margin-left: 250px; /* Adjust based on sidebar width */
+}
+
+/* Sidebar Styling */
+.sidebar {
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    background-color: #c0c0c0;
+    overflow-x: hidden;
+    transition: width 0.5s ease, transform 0.5s ease;
+    padding-top: 60px;
+    white-space: nowrap;
+}
+
+.sidebar.open {
+    width: 250px; /* Adjust width as needed */
+    transform: translateX(0);
+}
+
+
+.sidebar a {
+    padding: 10px 15px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #333;
+    display: block;
+    transition: color 0.3s ease;
+}
+
+.sidebar a:hover {
+    color: #ff6f61;
+}
+
+/* Responsive Sidebar */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+    }
+
+    #main {
+        margin-left: 0;
+    }
+
+    .openbtn {
+        top: 10px;
+        left: 10px;
+        z-index: 1001;
+    }
+}
+
+.closebtn {
+    position: absolute;
+    top: 0;
+    right: 50px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+/* Button Animation */
+.btn {
+    background-color: #007bff; /* Initial background color */
+    color: #fff; /* Text color */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #0056b3; /* Background color on hover */
+    transform: scale(1.05); /* Slightly enlarge the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+}
+
+.btn:active {
+    transform: scale(0.95); /* Slightly shrink the button when clicked */
+}
+
+/* Search Bar Styling */
+.top-search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0;
+}
+
+.top-search-bar input[type="text"] {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px 0 0 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.search-btn, .login-btn, .profile-btn {
+    padding: 8px 15px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+}
+
+.search-btn i, .profile-btn i {
+    margin-right: 5px;
+}
+
+/* Login and Profile Button Styles */
+.login-btn {
+    background-color: #28a745;
+}
+
+.profile-btn {
+    background-color: #ff9800;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .top-search-bar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+}
+
+/* Featured Courses Section */
+.featured-courses {
+    padding: 20px 0;
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.course-card {
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    background-color: #f1efefb7;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px); /* Lift the card slightly */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Add shadow effect */
+}
+
+.course-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+}
+
+.course-card h3 {
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+/* Text Animations */
+.fade-in-text {
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+.slide-in-text {
+    transform: translateX(-20px);
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+
+.scale-up-text {
+    transform: scale(0.9);
+    opacity: 0;
+    animation: scaleUp 1s forwards;
+}
+
+.course-card .btn {
+    padding: 10px;
+    background-color: #111;
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 5px;
+}
+
+/* About Section Styling */
+.about-section {
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+.about-section h2 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: justify;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #111;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+}
+
+footer .social-icons a {
+    color: white;
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 600px) {
+    .courses-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .course-card h3 {
+        font-size: 18px;
+    }
+
+    .about-section h2 {
+        font-size: 28px;
+    }
+
+    .about-section p {
+        font-size: 16px;
+    }
+}
+
+/* Hide radio buttons */
+input[type="radio"] {
+    display: none;
+}
+
+/* Highlight the active tab */
+input[type="radio"]:checked + label {
+    opacity: 1;
+    color: #ff6f61; /* Change to your preferred active tab color */
+    background-color: #e0e0e0; /* Change to your preferred background color for active tab */
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Keyframes for Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
